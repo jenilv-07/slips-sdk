@@ -153,6 +153,5 @@ For detailed API documentation, please refer to the source code in the `slips/` 
 
 ## License
 
-This project is licensed under the GNU Affero General Public License (AGPL).  
-[![License](https://img.shields.io/pypi/l/slips-sdk.svg)](https://pypi.org/project/slips-sdk/)  
-See the [LICENSE](LICENSE) file for details.
+slips‑sdk is licensed under the GNU Affero General Public License v3.0.  
+See the [LICENSE](./LICENSE) file for details.
