@@ -20,7 +20,7 @@ class SlipsMultiInstanceManager:
     def __init__(self, base_dir: Optional[str] = None):
         self.base_dir = base_dir or os.path.dirname(os.path.abspath(__file__))
         self.binary_path = os.path.join(self.base_dir, "StratosphereLinuxIPS/slips.py")
-        self.default_config = os.path.join(self.base_dir, "StratosphereLinuxIPS/config/slips.yaml")
+        self.default_config = os.path.join(self.base_dir, "/etc/slips-sdk/config/slips.yaml")
         self.pid_dir = os.path.join(self.base_dir, "slips_pids")
 
         if not os.path.isfile(self.binary_path):

@@ -161,7 +161,7 @@ mkdir -p "$TARGET_DIR"
 # Get script base directory
 BASE_DIR="$(cd "$(dirname "$0")/.." && pwd)"  # Goes to StratosphereLinuxIPS root
 
-for dir in config dataset databases; do
+for dir in config dataset databases zeek-scripts; do
     SRC="$BASE_DIR/$dir"
     DEST="$TARGET_DIR/$dir"
     if [ -d "$SRC" ]; then

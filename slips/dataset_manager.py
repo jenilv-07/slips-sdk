@@ -8,7 +8,7 @@ class DatasetManager:
     SDK to manage datasets (files or directories) in a structured dataset folder.
     """
 
-    def __init__(self, directory: str = "StratosphereLinuxIPS/dataset"):
+    def __init__(self, directory: str = "/etc/slips-sdk/dataset"):
         """
         Initialize the DatasetManager with a given directory (relative to the script location).
         """

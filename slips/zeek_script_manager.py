@@ -18,7 +18,7 @@ class ZeekScriptManager:
     The absolute path of the script directory is kept private to avoid exposure.
     """
 
-    def __init__(self, directory: str = "StratosphereLinuxIPS/zeek-scripts"):
+    def __init__(self, directory: str = "/etc/slips-sdk/zeek-scripts"):
         """
         Initialize the ZeekScriptManager.
 

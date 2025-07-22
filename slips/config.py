@@ -11,7 +11,7 @@ class IDSConfig:
     Provides get/set access with automatic saving and documentation.
     """
 
-    def __init__(self, relative_path: str = "StratosphereLinuxIPS/config/slips.yaml"):
+    def __init__(self, relative_path: str = "/etc/slips-sdk/config/slips.yaml"):
         base_dir = os.path.dirname(os.path.abspath(__file__))
         self.config_path = os.path.join(base_dir, relative_path)
         self._data = {}
@@ -143,7 +143,7 @@ class IrisConfig:
     Provides structured access to each section.
     """
 
-    def __init__(self, relative_path: str = "StratosphereLinuxIPS/config/iris_config.yaml"):
+    def __init__(self, relative_path: str = "/etc/slips-sdk/config/iris_config.yaml"):
         base_dir = os.path.dirname(os.path.abspath(__file__))
         self.config_path = os.path.join(base_dir, relative_path)
         self._data = {}
@@ -247,7 +247,7 @@ class WardenConfig:
     Expects the file to be in the same directory as this script.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/warden.conf"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/warden.conf"):
         self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         self._data: Dict[str, Any] = {}
         self._load()
@@ -364,7 +364,7 @@ class WhitelistConfig:
     Supports listing, adding, updating, deleting, and saving whitelist IoC entries.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/whitelist.conf"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/whitelist.conf"):
         self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         self.header_lines = []
         self.entries: List[Dict[str, str]] = []
@@ -452,7 +452,7 @@ class VTAPIKeyManager:
     The file is located in the same directory as this script by default.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/vt_api_key"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/vt_api_key"):
         self.key_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
 
     def set_key(self, api_key: str):
@@ -482,7 +482,7 @@ class SlackBotTokenManager:
     SDK for managing Slack Bot token stored in 'slack_bot_token_secret' file.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/slack_bot_token_secret"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/slack_bot_token_secret"):
         self.token_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
 
     def set_token(self, token: str):
@@ -513,7 +513,7 @@ class TIFeedManager:
     Supports listing, adding, updating, deleting, and saving TI feed entries.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/TI_feeds.csv"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/TI_feeds.csv"):
         self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         self.header_lines: List[str] = []
         self.feeds: List[Dict[str, str]] = []
@@ -600,7 +600,7 @@ class SSLFeedManager:
     Supports listing, adding, updating, deleting, and saving SSL fingerprint feed entries.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/SSL_feeds.csv"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/SSL_feeds.csv"):
         self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         self.header_lines: List[str] = []
         self.feeds: List[Dict[str, str]] = []
@@ -687,7 +687,7 @@ class RiskIQCredentialsManager:
     Format: username:apikey
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/RiskIQ_credentials"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/RiskIQ_credentials"):
         self.cred_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
 
     def set_credentials(self, username: str, api_key: str):
@@ -721,7 +721,7 @@ class JA3FeedManager:
     Supports listing, adding, updating, deleting, and saving JA3 SSL fingerprint feed entries.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/JA3_feeds.csv"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/JA3_feeds.csv"):
         self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         self.header_lines: List[str] = []
         self.feeds: List[Dict[str, str]] = []
@@ -808,7 +808,7 @@ class LogstashConfigManager:
     Supports parsing and updating input, filter, and output blocks (file plugin only).
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/logstash.conf"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/logstash.conf"):
         self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         self._raw_lines = []
         self._load()
@@ -882,7 +882,7 @@ class RedisConfManager:
     Preserves comments and structure.
     """
 
-    def __init__(self, filename: str = "StratosphereLinuxIPS/config/redis.conf"):
+    def __init__(self, filename: str = "/etc/slips-sdk/config/redis.conf"):
         self.conf_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         self._lines = []
         self._load()
