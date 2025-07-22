@@ -40,7 +40,7 @@ from slips_files.core.structures.evidence import (
 def test_get_geocountry(ip_address, expected_geocountry):
     ip_info = ModuleFactory().create_ip_info_obj()
     ip_info.country_db = maxminddb.open_database(
-        "databases/GeoLite2-Country.mmdb"
+        "/etc/slips-sdk/databases/GeoLite2-Country.mmdb"
     )
     assert ip_info.get_geocountry(ip_address) == expected_geocountry
 

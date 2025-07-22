@@ -59,7 +59,7 @@ class UpdateManager(IModule):
         self.whitelist = Whitelist(self.logger, self.db)
         self.slips_logfile = self.db.get_stdfile("stdout")
         self.org_info_path = "slips_files/organizations_info/"
-        self.path_to_mac_db = "databases/macaddress-db.json"
+        self.path_to_mac_db = "/etc/slips-sdk/databases/macaddress-db.json"
         # if any keyword of the following is present in a line
         # then this line should be ignored by slips
         # either a not supported ioc type or a header line etc.

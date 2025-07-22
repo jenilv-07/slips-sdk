@@ -19,7 +19,7 @@ class ASN:
         # Open the maxminddb ASN offline db
         try:
             self.asn_db = maxminddb.open_database(
-                "databases/GeoLite2-ASN.mmdb"
+                "/etc/slips-sdk/databases/GeoLite2-ASN.mmdb"
             )
         except Exception:
             # errors are printed in IP_info

@@ -74,11 +74,11 @@ class IPInfo(AsyncModule):
         # Open the maxminddb ASN offline db
         try:
             self.asn_db = maxminddb.open_database(
-                "databases/GeoLite2-ASN.mmdb"
+                "/etc/slips-sdk/databases/GeoLite2-ASN.mmdb"
             )
         except Exception:
             self.print(
-                "Error opening the geolite2 db in databases/GeoLite2-ASN.mmdb. "
+                "Error opening the geolite2 db in /etc/slips-sdk/databases/GeoLite2-ASN.mmdb. "
                 "Please download it from "
                 "https://dev.maxmind.com/geoip/docs/databases/asn?lang=en "
                 "Please note it must be the MaxMind DB version."
@@ -87,11 +87,11 @@ class IPInfo(AsyncModule):
         # Open the maminddb Country offline db
         try:
             self.country_db = maxminddb.open_database(
-                "databases/GeoLite2-Country.mmdb"
+                "/etc/slips-sdk/databases/GeoLite2-Country.mmdb"
             )
         except Exception:
             self.print(
-                "Error opening the geolite2 db in databases/GeoLite2-Country.mmdb. "
+                "Error opening the geolite2 db in /etc/slips-sdk/databases/GeoLite2-Country.mmdb. "
                 "Please download it from "
                 "https://dev.maxmind.com/geoip/geolite2-free-geolocation-data?lang=en. "
                 "Please note it must be the MaxMind DB version."
@@ -111,7 +111,7 @@ class IPInfo(AsyncModule):
                 return
 
             try:
-                self.mac_db = open("databases/macaddress-db.json", "r")
+                self.mac_db = open("/etc/slips-sdk/databases/macaddress-db.json", "r")
                 return True
             except OSError:
                 # update manager hasn't downloaded it yet
