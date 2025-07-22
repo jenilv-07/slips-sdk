@@ -533,10 +533,16 @@ class Utils(object):
 
     def get_slips_version(self) -> str:
         version_file = "VERSION"
-        with open(version_file, "r") as f:
-            version = f.read()
-        version = version.replace("\n", "")
-        return version
+        fallback_version = "1.1.9"
+        try:
+            with open(version_file, "r", encoding="utf-8") as f:
+                version = f.read().strip()
+                if not version:
+                    return fallback_version
+                return version
+        except FileNotFoundError:
+            return fallback_version
+
 
     def change_logfiles_ownership(self, file: str, UID, GID):
         """
