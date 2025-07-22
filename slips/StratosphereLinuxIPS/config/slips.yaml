@@ -221,7 +221,7 @@ virustotal:
   # This is the path to the API key. The file should contain the key at the
   # start of the first line, and nothing more.
   # If no key is found, VT module will not be started.
-  api_key_file: config/vt_api_key
+  api_key_file: /etc/slips-sdk/config/vt_api_key
 
   # Update period of virustotal for each IP in the cache
   # The expected value in seconds.
@@ -251,7 +251,7 @@ threatintelligence:
   # The format of the files must be, per line:
   # "Number","IP address","Rating","Description"
   # For example:  "1","191.101.31.25","100","NSO IP by Amnesty"
-  local_threat_intelligence_files: config/local_ti_files/
+  local_threat_intelligence_files: /etc/slips-sdk/config/local_ti_files/
 
   # yamllint disable-line rule:line-length
   # The remote TI files will be temporaly stored in this directory
@@ -273,22 +273,22 @@ threatintelligence:
   # File that contains all the preconfigured TI feeds URLs and their
   # threat level.
   # Here is you can find the URLs of the more than 45 TI feeds used by Slips
-  ti_files: config/TI_feeds.csv
+  ti_files: /etc/slips-sdk/config/TI_feeds.csv
 
   # File that contains all the JA3 feeds URLs and their threat level
   # These feeds contain JA3 fingerprints that are identified as malicious.
-  ja3_feeds: config/JA3_feeds.csv
+  ja3_feeds: /etc/slips-sdk/config/JA3_feeds.csv
 
   # File that contains all our SHA1 SSL fingerprints feeds and
   # their threat level
   # These feeds contain SHA1 SSL fingerprints that are identified as malicious.
-  ssl_feeds: config/SSL_feeds.csv
+  ssl_feeds: /etc/slips-sdk/config/SSL_feeds.csv
 
   # Slips supports an optional RiskIQ feeds as an additional sources of TI data
   # This file should contain your email and your 64 char API key,
   # Each one in it's own line.
   # However, since RiskIQ was bought this is not possible anymore.
-  RiskIQ_credentials_path: config/RiskIQ_credentials
+  RiskIQ_credentials_path: /etc/slips-sdk/config/RiskIQ_credentials
 
   # Update period for RisqIQ is set to 1 week by default, if you're not a premium riskIQ
   # user check your quota limit before changing this value
@@ -318,7 +318,7 @@ whitelists:
   # It also works with Organizations such as Microsoft, Twitter, etc.
   # It works by searching the official list of ASN, domains and IPs
   # of those organizations.
-  local_whitelist_path: config/whitelist.conf
+  local_whitelist_path: /etc/slips-sdk/config/whitelist.conf
 
 #############################
 flowalerts:
@@ -361,7 +361,7 @@ exporting_alerts:
   sensor_name: sensor1
 
   # Filepath where the slack token should be
-  slack_api_path: config/slack_bot_token_secret
+  slack_api_path: /etc/slips-sdk/config/slack_bot_token_secret
 
   # Stix
   # Server to use if you enable exporting STIX
@@ -409,7 +409,7 @@ CESNET:
   # Warden configuration file. For format instructions check
   # yamllint disable-line rule:line-length
   # https://stratospherelinuxips.readthedocs.io/en/develop/exporting.html?highlight=exporting# cesnet-sharing
-  configuration_file: config/warden.conf
+  configuration_file: /etc/slips-sdk/config/warden.conf
 
   # Time to wait before receiving alerts from warden server (in seconds)
   # By default receive alerts every 1 day
@@ -506,7 +506,7 @@ global_p2p:
    # network handler combination. can only be enabled when
    # running slips on an interface
    use_global_p2p: False
-   iris_conf: config/iris_config.yaml
+   iris_conf: /etc/slips-sdk/config/iris_config.yaml
    bootstrapping_node: False
    bootstrapping_modules: ["fidesModule", "irisModule"]
 
