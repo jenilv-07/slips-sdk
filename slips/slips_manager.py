@@ -22,7 +22,7 @@ class SlipsManager:
 
         # Paths resolved relative to this SDK file
         self.binary_path = os.path.abspath(os.path.join(base_dir, "StratosphereLinuxIPS/slips.py"))
-        self.default_config = os.path.abspath(os.path.join(base_dir, "StratosphereLinuxIPS/config/slips.yaml"))
+        self.default_config = os.path.abspath(os.path.join(base_dir, "etc/slips-sdk/config/slips.yaml"))
         self.db_files = os.path.abspath(os.path.join(base_dir, "/etc/slips-sdk/databases/macaddress-db.json"))
 
         if not os.path.isfile(self.binary_path):
@@ -157,7 +157,7 @@ class SlipsManager:
         Returns:
             str: Version string.
         """
-        result = self._run_command(["-V"], capture_output=True)
+        result = self._run_command(["-c",self.default_config,"-V"], capture_output=True)
         return result.stdout.decode().strip()
 
     def clear_blocking_chain(self):
@@ -185,7 +185,7 @@ class SlipsManager:
         return self._run_command(["-c", self.default_config, "-w"])
 
 
-# ✅ Example usage
+# Example usage
 if __name__ == "__main__":
     slips = SlipsManager()
 
