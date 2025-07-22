@@ -13,7 +13,8 @@ class DatasetManager:
         Initialize the DatasetManager with a given directory (relative to the script location).
         """
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.dataset_root = os.path.abspath(os.path.join(base_dir, directory))
+        # self.dataset_root = os.path.abspath(os.path.join(base_dir, directory))
+        self.dataset_root = directory
         os.makedirs(self.dataset_root, exist_ok=True)
 
     def list_items(self) -> List[str]:

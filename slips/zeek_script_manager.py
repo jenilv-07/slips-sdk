@@ -26,7 +26,8 @@ class ZeekScriptManager:
             directory (str): Relative path from this file to the Zeek script storage directory.
         """
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        self._script_dir = os.path.abspath(os.path.join(base_dir, directory))
+        # self._script_dir = os.path.abspath(os.path.join(base_dir, directory))
+        self._script_dir = directory
         os.makedirs(self._script_dir, exist_ok=True)
 
     def list_scripts(self) -> List[str]:

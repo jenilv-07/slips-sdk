@@ -12,8 +12,7 @@ class IDSConfig:
     """
 
     def __init__(self, relative_path: str = "/etc/slips-sdk/config/slips.yaml"):
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.config_path = os.path.join(base_dir, relative_path)
+        self.config_path = relative_path
         self._data = {}
         self._load()
 
@@ -144,8 +143,7 @@ class IrisConfig:
     """
 
     def __init__(self, relative_path: str = "/etc/slips-sdk/config/iris_config.yaml"):
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.config_path = os.path.join(base_dir, relative_path)
+        self.config_path = relative_path
         self._data = {}
         self._load()
 
@@ -248,7 +246,7 @@ class WardenConfig:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/warden.conf"):
-        self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.config_path = filename
         self._data: Dict[str, Any] = {}
         self._load()
 
@@ -365,7 +363,8 @@ class WhitelistConfig:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/whitelist.conf"):
-        self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.config_path = filename
         self.header_lines = []
         self.entries: List[Dict[str, str]] = []
         self._load()
@@ -453,7 +452,8 @@ class VTAPIKeyManager:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/vt_api_key"):
-        self.key_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.key_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.key_path = filename
 
     def set_key(self, api_key: str):
         """Write the API key to the file."""
@@ -483,7 +483,8 @@ class SlackBotTokenManager:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/slack_bot_token_secret"):
-        self.token_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.token_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.token_path = filename
 
     def set_token(self, token: str):
         """Write the Slack Bot token to the file."""
@@ -514,7 +515,8 @@ class TIFeedManager:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/TI_feeds.csv"):
-        self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.file_path = filename
         self.header_lines: List[str] = []
         self.feeds: List[Dict[str, str]] = []
         self._load()
@@ -601,7 +603,8 @@ class SSLFeedManager:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/SSL_feeds.csv"):
-        self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.file_path = filename
         self.header_lines: List[str] = []
         self.feeds: List[Dict[str, str]] = []
         self._load()
@@ -688,7 +691,8 @@ class RiskIQCredentialsManager:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/RiskIQ_credentials"):
-        self.cred_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.cred_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.cred_path = filename
 
     def set_credentials(self, username: str, api_key: str):
         """Store RiskIQ credentials in username:apikey format."""
@@ -722,7 +726,8 @@ class JA3FeedManager:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/JA3_feeds.csv"):
-        self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.file_path = filename
         self.header_lines: List[str] = []
         self.feeds: List[Dict[str, str]] = []
         self._load()
@@ -809,7 +814,8 @@ class LogstashConfigManager:
     """
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/logstash.conf"):
-        self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        # self.config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.config_path = filename
         self._raw_lines = []
         self._load()
 
@@ -884,6 +890,7 @@ class RedisConfManager:
 
     def __init__(self, filename: str = "/etc/slips-sdk/config/redis.conf"):
         self.conf_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        self.conf_path = filename
         self._lines = []
         self._load()
 

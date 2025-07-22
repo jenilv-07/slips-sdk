@@ -20,10 +20,16 @@ class SlipsManager:
         """
         base_dir = os.path.dirname(os.path.abspath(__file__))
 
+        print(f"[INFO] Base directory for SLIPS SDK: {base_dir}")
+
         # Paths resolved relative to this SDK file
-        self.binary_path = os.path.abspath(os.path.join(base_dir, "StratosphereLinuxIPS/slips.py"))
-        self.default_config = os.path.abspath(os.path.join(base_dir, "etc/slips-sdk/config/slips.yaml"))
-        self.db_files = os.path.abspath(os.path.join(base_dir, "/etc/slips-sdk/databases/macaddress-db.json"))
+        self.binary_path = os.path.abspath(os.path.join(base_dir, "StratosphereLinuxIPS", "slips.py"))
+        self.default_config = os.path.join(base_dir, "StratosphereLinuxIPS", "config", "slips.yaml")
+        print(f"[INFO] SLIPS binary path: {self.binary_path}")
+        print(f"[INFO] SLIPS default config path: {self.default_config}")
+        # self.db_files = os.path.abspath(os.path.join(base_dir, "/etc/slips-sdk/databases/macaddress-db.json"))
+        self.db_files = os.path.join(base_dir, "etc", "slips-sdk", "databases", "macaddress-db.json")
+
 
         if not os.path.isfile(self.binary_path):
             raise FileNotFoundError(f"SLIPS binary not found at {self.binary_path}")
@@ -186,11 +192,11 @@ class SlipsManager:
 
 
 # Example usage
-if __name__ == "__main__":
-    slips = SlipsManager()
+# if __name__ == "__main__":
+#     slips = SlipsManager()
 
-    try:
-        print("Version:", slips.get_version())
-        slips.start(file="test.pcap", verbose=1, debug=1, output_dir="~/output")
-    except Exception as e:
-        print(f"[ERROR] {e}")
+#     try:
+#         print("Version:", slips.get_version())
+#         slips.start(file="test.pcap", verbose=1, debug=1, output_dir="~/output")
+#     except Exception as e:
+#         print(f"[ERROR] {e}")
