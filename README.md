@@ -4,9 +4,6 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/slips-sdk.svg)](https://pypi.org/project/slips-sdk/)
 [![License](https://img.shields.io/pypi/l/slips-sdk.svg)](https://pypi.org/project/slips-sdk/)
 
-**Version:** 0.1.0  
-**Author:** Jenil Vekariya  
-**Author Email:** vekariyajenil888@gmail.com  
 **Description:** SDK for interacting with slips IDS components  
 **Python Requires:** >=3.10  
 **Operating System:** Ubuntu 22.04  
