@@ -56,7 +56,7 @@ class SlipsManager:
         Raises:
             CalledProcessError if command fails.
         """
-        command = ["sudo", self.binary_path] + args
+        command = ["sudo", "python3", self.binary_path] + args
         command_str = " ".join(shlex.quote(str(arg)) for arg in command)
         print(f"[SLIPS CMD] {command_str}")
 
@@ -157,7 +157,7 @@ class SlipsManager:
         Returns:
             str: Version string.
         """
-        result = self._run_command(["-c",self.default_config,"-V"], capture_output=True)
+        result = self._run_command(["-V"], capture_output=True)
         return result.stdout.decode().strip()
 
     def clear_blocking_chain(self):
