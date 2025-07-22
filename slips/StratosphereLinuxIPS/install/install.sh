@@ -150,3 +150,29 @@ redis-server --daemonize yes
 exit_on_cmd_failure
 
 print_green "Successfully installed Slips."
+
+# -------------------------------
+# NEW SECTION: COPY CONFIG FILES
+# -------------------------------
+print_green "Copying config, dataset, and databases to /etc/slips-sdk"
+TARGET_DIR="/etc/slips-sdk"
+mkdir -p "$TARGET_DIR"
+
+# Get script base directory
+BASE_DIR="$(cd "$(dirname "$0")/.." && pwd)"  # Goes to StratosphereLinuxIPS root
+
+for dir in config dataset databases; do
+    SRC="$BASE_DIR/$dir"
+    DEST="$TARGET_DIR/$dir"
+    if [ -d "$SRC" ]; then
+        echo "[INFO] Copying $SRC → $DEST"
+        rm -rf "$DEST"
+        cp -r "$SRC" "$DEST"
+    else
+        echo "[WARNING] Directory not found: $SRC"
+    fi
+done
+
+echo "[INFO] Config, dataset, and databases copied successfully to $TARGET_DIR"
+
+print_green "Successfully installed Slips."
