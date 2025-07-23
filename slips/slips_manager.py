@@ -25,7 +25,7 @@ class SlipsManager:
         # Paths resolved relative to this SDK file
         self.binary_path = os.path.abspath(os.path.join(base_dir, "StratosphereLinuxIPS", "slips.py"))
         # self.default_config = os.path.join(base_dir, "StratosphereLinuxIPS", "config", "slips.yaml")
-        self.default_config = "/etc/slisp-sdk/config/slips.yaml"
+        self.default_config = "/etc/slips-sdk/config/slips.yaml"
 
         print(f"[INFO] SLIPS binary path: {self.binary_path}")
         print(f"[INFO] SLIPS default config path: {self.default_config}")
@@ -113,7 +113,8 @@ class SlipsManager:
         elif file_name:
             if not dataset_path:
                 base_dir = os.path.dirname(os.path.abspath(__file__))
-                dataset_path = os.path.join(base_dir, "/etc/slips-sdk/dataset")
+                # dataset_path = os.path.join(base_dir, "dataset")
+                dataset_path = "/etc/slips-sdk/dataset"
             full_file_path = os.path.expanduser(os.path.join(dataset_path, file_name))
             if not os.path.isfile(full_file_path):
                 raise FileNotFoundError(f"Dataset file not found: {full_file_path}")

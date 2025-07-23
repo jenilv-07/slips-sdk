@@ -810,7 +810,7 @@ class Input(ICore):
             bro_parameter = ["-r", given_path]
 
         # Run zeek on the pcap or interface. The redef is to have json files
-        zeek_scripts_dir = os.path.join(os.getcwd(), "/etc/slips-sdk/zeek-scripts")
+        zeek_scripts_dir ="/etc/slips-sdk/zeek-scripts"
         packet_filter = (
             ["-f ", self.packet_filter] if self.packet_filter else []
         )
