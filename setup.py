@@ -13,7 +13,7 @@ class CustomInstallCommand(install):
 
 setup(
     name="slips-sdk",
-    version="0.1.6",
+    version="0.1.7",
     author="Jenil Vekariya",
     author_email="vekariyajenil888@gmail.com",
     description="SDK for interacting with slips IDS components",
