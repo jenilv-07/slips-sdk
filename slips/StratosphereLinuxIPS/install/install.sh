@@ -149,7 +149,6 @@ redis-server --daemonize yes
 
 exit_on_cmd_failure
 
-print_green "Successfully installed Slips."
 
 # -------------------------------
 # NEW SECTION: COPY CONFIG FILES
@@ -172,6 +171,12 @@ for dir in config dataset databases zeek-scripts; do
         echo "[WARNING] Directory not found: $SRC"
     fi
 done
+
+REMOTE_DIR="$TARGET_DIR/modules/threat_intelligence/remote_data_files"
+if [ ! -d "$REMOTE_DIR" ]; then
+    echo "[INFO] Creating directory: $REMOTE_DIR"
+    mkdir -p "$REMOTE_DIR"
+fi
 
 echo "[INFO] Config, dataset, and databases copied successfully to $TARGET_DIR"
 
