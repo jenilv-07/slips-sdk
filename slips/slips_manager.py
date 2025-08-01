@@ -29,8 +29,8 @@ class SlipsManager:
 
         print(f"[INFO] SLIPS binary path: {self.binary_path}")
         print(f"[INFO] SLIPS default config path: {self.default_config}")
-        # self.db_files = os.path.abspath(os.path.join(base_dir, "/etc/slips-sdk/databases/macaddress-db.json"))
-        self.db_files = os.path.join(base_dir, "etc", "slips-sdk", "databases", "macaddress-db.json")
+        # self.db_files = os.path.join(base_dir, "etc", "slips-sdk", "databases", "macaddress-db.json")
+        self.db_files = "/etc/slips-sdk/databases/macaddress-db.json"
 
 
         if not os.path.isfile(self.binary_path):
