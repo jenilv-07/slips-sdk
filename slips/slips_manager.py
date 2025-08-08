@@ -66,7 +66,7 @@ class SlipsManager:
         """
         command = ["sudo", "python3", self.binary_path] + args
         command_str = " ".join(shlex.quote(str(arg)) for arg in command)
-        print(f"[SLIPS CMD] {command_str}")
+        # print(f"[SLIPS CMD] {command_str}")
 # 
         return subprocess.run(
             command,
