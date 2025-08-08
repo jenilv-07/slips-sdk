@@ -65,7 +65,7 @@ class SlipsManager:
             CalledProcessError if command fails.
         """
         command = ["sudo", "python3", self.binary_path] + args
-        command_str = " ".join(shlex.quote(str(arg)) for arg in command)
+        # command_str = " ".join(shlex.quote(str(arg)) for arg in command)
         # print(f"[SLIPS CMD] {command_str}")
 # 
         return subprocess.run(
