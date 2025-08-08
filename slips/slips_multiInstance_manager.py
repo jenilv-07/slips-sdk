@@ -77,7 +77,7 @@ class SlipsMultiInstanceManager:
             pcap_filter=pcap_filter
         )
 
-        print("[SLIPS MULTI-START]", " ".join(shlex.quote(arg) for arg in command))
+        # print("[SLIPS MULTI-START]", " ".join(shlex.quote(arg) for arg in command))
         process = subprocess.Popen(
             command,
             cwd=os.path.dirname(self.binary_path),
@@ -113,9 +113,9 @@ class SlipsMultiInstanceManager:
         try:
             os.kill(pid, signal.SIGTERM)
             os.remove(pid_file)
-            print(f"[STOPPED] Instance '{instance_name}' (PID: {pid})")
+            # print(f"[STOPPED] Instance '{instance_name}' (PID: {pid})")
         except ProcessLookupError:
-            print(f"[WARNING] Process {pid} not found. Cleaning up.")
+            # print(f"[WARNING] Process {pid} not found. Cleaning up.")
             os.remove(pid_file)
 
     def list_instances(self):

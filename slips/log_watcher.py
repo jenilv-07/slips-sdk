@@ -51,7 +51,7 @@ class LogWatcher:
         self._observer.schedule(event_handler, path=directory, recursive=False)
         self._observer.start()
 
-        print(f"[LogWatcher] Monitoring started: {self.log_file_path}")
+        # print(f"[LogWatcher] Monitoring started: {self.log_file_path}")
 
     def stop(self):
         self._running = False
@@ -60,4 +60,4 @@ class LogWatcher:
             self._observer.join()
         if self._file:
             self._file.close()
-        print("[LogWatcher] Stopped.")
+        # print("[LogWatcher] Stopped.")

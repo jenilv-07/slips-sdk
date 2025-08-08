@@ -20,15 +20,15 @@ class SlipsManager:
         """
         base_dir = os.path.dirname(os.path.abspath(__file__))
 
-        print(f"[INFO] Base directory for SLIPS SDK: {base_dir}")
+        # print(f"[INFO] Base directory for SLIPS SDK: {base_dir}")
 
         # Paths resolved relative to this SDK file
         self.binary_path = os.path.abspath(os.path.join(base_dir, "StratosphereLinuxIPS", "slips.py"))
         # self.default_config = os.path.join(base_dir, "StratosphereLinuxIPS", "config", "slips.yaml")
         self.default_config = "/etc/slips-sdk/config/slips.yaml"
 
-        print(f"[INFO] SLIPS binary path: {self.binary_path}")
-        print(f"[INFO] SLIPS default config path: {self.default_config}")
+        # print(f"[INFO] SLIPS binary path: {self.binary_path}")
+        # print(f"[INFO] SLIPS default config path: {self.default_config}")
         # self.db_files = os.path.join(base_dir, "etc", "slips-sdk", "databases", "macaddress-db.json")
         self.db_files = "/etc/slips-sdk/databases/macaddress-db.json"
 
@@ -39,14 +39,14 @@ class SlipsManager:
         if not os.access(self.binary_path, os.X_OK):
             try:
                 subprocess.run(["chmod", "+x", self.binary_path], check=True)
-                print(f"[INFO] Made slips.py executable: {self.binary_path}")
+                # print(f"[INFO] Made slips.py executable: {self.binary_path}")
             except subprocess.CalledProcessError as e:
                 raise PermissionError(f"Failed to make binary executable: {e}")
 
         if not os.access(self.db_files, os.X_OK):
             try:
                 subprocess.run(["touch", self.db_files ])
-                print(f"[INFO] create the db file : {self.db_files}")
+                # print(f"[INFO] create the db file : {self.db_files}")
             except subprocess.CalledProcessError as e:
                 raise PermissionError(f"Failed to create db file : {e}")
 
@@ -67,7 +67,7 @@ class SlipsManager:
         command = ["sudo", "python3", self.binary_path] + args
         command_str = " ".join(shlex.quote(str(arg)) for arg in command)
         print(f"[SLIPS CMD] {command_str}")
-
+# 
         return subprocess.run(
             command,
             stdout=subprocess.PIPE if capture_output else None,

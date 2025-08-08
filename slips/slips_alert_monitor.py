@@ -37,13 +37,13 @@ class SlipsAlertMonitor:
                     self.monitor._read_new_lines()
 
     def _wait_for_file(self):
-        print(f"[Monitor] Waiting for alert file: {self.alert_file_path}")
+        # print(f"[Monitor] Waiting for alert file: {self.alert_file_path}")
         wait_start = time.time()
         while not os.path.isfile(self.alert_file_path):
             time.sleep(1)
             if int(time.time() - wait_start) % 10 == 0:
-                print(f"[Monitor] Still waiting... ({self.alert_file_path})")
-        print(f"[Monitor] Alert file found: {self.alert_file_path}")
+                # print(f"[Monitor] Still waiting... ({self.alert_file_path})")
+        # print(f"[Monitor] Alert file found: {self.alert_file_path}")
 
     def _read_new_lines(self):
         while True:
@@ -65,11 +65,11 @@ class SlipsAlertMonitor:
                 alert = json.loads(line_to_process)
                 self.on_alert(alert)
             except json.JSONDecodeError as e:
-                print(f"[Monitor] JSON decode error: {e}. Buffering and retrying...")
+                # print(f"[Monitor] JSON decode error: {e}. Buffering and retrying...")
                 # Keep buffer intact and retry next time
                 continue
             except Exception as ex:
-                print(f"[Monitor] Unexpected error: {ex}")
+                # print(f"[Monitor] Unexpected error: {ex}")
 
     def start(self):
         self._wait_for_file()
@@ -88,7 +88,7 @@ class SlipsAlertMonitor:
         self._observer.schedule(event_handler, path=directory, recursive=False)
         self._observer.start()
 
-        print(f"[Monitor] Monitoring started: {self.alert_file_path}")
+        # print(f"[Monitor] Monitoring started: {self.alert_file_path}")
 
     def stop(self):
         self._running = False
@@ -97,7 +97,7 @@ class SlipsAlertMonitor:
             self._observer.join()
         if self._file:
             self._file.close()
-        print("[Monitor] Stopped.")
+        # print("[Monitor] Stopped.")
 
     def read_all_existing(self):
         self._wait_for_file()
