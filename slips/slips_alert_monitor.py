@@ -42,6 +42,7 @@ class SlipsAlertMonitor:
         while not os.path.isfile(self.alert_file_path):
             time.sleep(1)
             if int(time.time() - wait_start) % 10 == 0:
+                pass
                 # print(f"[Monitor] Still waiting... ({self.alert_file_path})")
         # print(f"[Monitor] Alert file found: {self.alert_file_path}")
 
