@@ -66,10 +66,12 @@ class SlipsAlertMonitor:
                 alert = json.loads(line_to_process)
                 self.on_alert(alert)
             except json.JSONDecodeError as e:
+                raise ValueError(f"JSON decode error: {e} for line: {line_to_process}") from e
                 # print(f"[Monitor] JSON decode error: {e}. Buffering and retrying...")
                 # Keep buffer intact and retry next time
                 continue
             except Exception as ex:
+                raise RuntimeError(f"Unexpected error processing alert: {ex}") from ex
                 # print(f"[Monitor] Unexpected error: {ex}")
 
     def start(self):
